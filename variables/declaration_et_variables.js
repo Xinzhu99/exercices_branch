@@ -1,14 +1,20 @@
 //Exo1
-let firstName = "Xinzhu";
-let lastName = "JIN";
-//vu que Alert ne s'affiche pas dans vscode, remplacé par console.log
+let firstName = "Xinzhu"
+let lastName = "JIN"
 
-console.log(`Bonjour, ${lastName} ${firstName}`)
+function alertName (firstName, lastName)
+{
+    return `Bonjour, ${lastName} ${firstName}`
+}
+
+console.log(alertName(firstName,lastName))
 
 
 //Exo 2
 const retirement = 64
 let myAGe = 32
 let workingYears = retirement - myAGe
-
-console.log(workingYears)
+function alertAge (workingYears){
+    return `${workingYears}`
+}
+console.log(alertAge(workingYears))
