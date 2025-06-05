@@ -4,4 +4,4 @@ secondLanguage = "Java"
 thirdLanguage = "HTML"
 
 //Exo 2
-"Les trois languages sont Java"
+"Les trois languages sont java"
