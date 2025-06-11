@@ -7,7 +7,7 @@ function addition3Numbers(){
 }
 addition3Numbers()
 
-//Exo Ecris une nouvelle fonction addition3NumbersWithArg(…) qui affichera aussi le résultat d’une addition de 3 nombres mais
+//Ecris une nouvelle fonction addition3NumbersWithArg(…) qui affichera aussi le résultat d’une addition de 3 nombres mais
 //cette fois-ci à partir de 3 arguments. Déclarer 3 variables qui prennent chacune une valeur de votre choix. Passez ces variables à la fonction addition3NumbersWithArg(…).
 //Objectif : Voir dans la console : “Le résultat de la somme est X”. X étant le résultat de la somme de vos trois valeurs de variables.
 let N1 = 1;
@@ -18,3 +18,9 @@ function addition3NumbersWithArg(N1,N2,N3){
 }
 console.log("Le résultat de la somme est :", addition3NumbersWithArg(N1,N2,N3));
 
+// Appelez addition3NumbersWithArg() 3 fois avec des valeurs d’argument différentes. Objectif : Voir dans la console  
+// : “Le résultat de la somme est X ” “Le résultat de la somme est Y” “Le résultat de la somme est Z”
+N1 = 10;
+N2 = 20;
+N3 = 40;
+console.log("Le résultat de la somme est :", addition3NumbersWithArg(N1,N2,N3));
