@@ -18,8 +18,15 @@ function hasKey(firstname) {
 console.log(hasKey('Toto')) // affiche 'non'
 console.log(hasKey('Laure')) // affiche 'oui'
 
-
-
+//nouvelle méthode
+function hasKey2(firstname){
+    if (names.includes(firstname)){
+        return "oui"
+    }
+    return "non"
+}
+console.log(hasKey('Laure')) // affiche 'oui'
+//contrainte de cette méthode, quand on a plusieurs conditions,on ne peut pas l"utiliser
 
 
 // BONUS, level++ :
