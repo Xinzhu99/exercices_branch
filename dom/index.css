@@ -1,0 +1,8 @@
+body{
+    background-color: mediumturquoise
+    ;
+}
+
+.spinned{
+     transform: rotate(45deg);
+}
