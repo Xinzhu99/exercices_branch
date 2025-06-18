@@ -1,4 +1,3 @@
-const pageTitle = document.querySelector("h1")
 //document permet de chercher les éléments dans la page html
 const subscribeButton = document.querySelector("#newsletter") //dans le fichier html, le texte original est "Subscrible"
 const smiley = document.querySelector("#smiley")
@@ -7,7 +6,7 @@ let userIsSubscribed = false
 function checkSub(){ 
     if (userIsSubscribed){
         userIsSubscribed = false
-       subscribeButton.innerText = "Subscribe" //il faut que ce que le même text
+       subscribeButton.innerText = "Subscribe" //il faut que ce soit le même text
        /*subscribeButton.innerText = "Unsubsribe" , innertext means "changer de text"*/
     }else{
         userIsSubscribed = true
