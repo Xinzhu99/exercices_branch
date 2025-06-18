@@ -23,7 +23,6 @@ function checkSub(){
 // }
 subscribeButton.addEventListener("click",checkSub)
 document.querySelector("#newsletter").addEventListener("click", () => {
-    
 }) 
 
 function spinSmiley(){
