@@ -15,7 +15,8 @@ console.log(totalPrice([2,2,2,2]));
 console.log("------------------------");
 
 
-//exo 2 : créer une fonction createPrice qui prend en paramètre le nombre des articles, et qui retourne un tableau aléatoire 
+//exo 2 : créer une fonction createPrice qui prend en paramètre le nombre des articles, et qui retourne un 
+// tableau aléatoire 
 // qui affiche les chiffres entre 1 et 10
 const createPrice = (articleCount) =>{
     let output = []
@@ -32,7 +33,8 @@ const createPrice = (articleCount) =>{
 console.log("Résult : ", createPrice(5))
 console.log("----------------------------------------")
 
-// //Exo 3 :créer une fonction qui prend Un nombre entre 0 et 10, et qui retourne le chiffre écrit en toutes lettres
+// //Exo 3 :créer une fonction qui prend Un nombre entre 0 et 10, et qui retourne le chiffre écrit en toutes
+//  lettres
 const myArabicNumbers = [0, 1, 2, 3,4];
 const myAlphabetNumbers = ["zéro","un","deux","trois","quatre"];
 const createNumber = myArabicNumbers[Math.floor(Math.random() * myArabicNumbers.length)];
@@ -61,7 +63,6 @@ console.log("-------------------------------")
 const prenoms = ["Salem", "Vincent","Abdel", "Meyko", "Mattéo"];
 const parfums = ["caramel", "chocolat", "pistache", "cassis", "vanille"];
 
-const myIndex = prenoms.indexOf("Vincent")
 
 function parfumParPrenom(prenom){
     for (let i=0; i<parfums.length;i++){

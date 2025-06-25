@@ -18,8 +18,8 @@ const horoscope = [
 ];
 
 // TODO: recupère l'élément <div id="horoscope">
-// 	TODO: remplace le console.log par le code qui ajoute un article
-//  pour chaque item avec le format suivant :
+// TODO: remplace le console.log par le code qui ajoute un article
+// pour chaque item avec le format suivant :
 
 const article = document.createElement("article")
 const container = document.getElementById("horoscope")
@@ -33,4 +33,21 @@ for (const item of horoscope){
   article.appendChild(phrase)
 }
 container.appendChild(article)
-device-width
+
+//une autre méthode : 
+for (const item of horoscope) {
+  container.innerHTML += `
+      <h2>${item.sign}</h2>
+      <p>${item.description}</p>
+  `;
+}
+
+
+horoscope.forEach((item) => {
+  container.innerHTML += `
+    <article>
+      <h2>${item.sign}</h2>
+      <p>${item.description}</p>
+    </article>
+  `;
+});
