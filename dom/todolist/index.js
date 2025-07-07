@@ -2,40 +2,59 @@ const todoTask = document.querySelector("#todoTask")
 const addButton = document.querySelector("#todoAdd")
 const todoList = document.querySelector("#todoList")
 
-let myList = []
+let myList = [];
 
-addButton.addEventListener("click",() =>{
-    myList.push(todoTask.value)
-    loadList()
-})
+//fonction : afficher la list des tâches:
+function loadList() {
+    todoList.innerHTML='';                                                                           //*on vide d'abord la liste html avant chaque affichage */               
+    
+    let index = 0;                                                                                   //*on créer l'affichage dynamique en ajoutant un index à chaque bouton supprimer pour pouvoir identifier facilement l'élément à supprimer dans le tableau plus tard
 
-
-function loadList(){
-    todoList.innerHTML=''
-    //each deleteButton will need a unique id to know which element has to be deleted.
-    //initialize an index at 0 for the first button and increment the value at each iteration
-    let index = 0;
     for (const item of myList){
-        todoList.innerHTML+=`<li>${item}<button id="${index}" class="deleteButton"> Supprimer</button></li>`
-        index++
-    }
-
-    const deleteButton = document.querySelectorAll(".deleteButton")
+        todoList.innerHTML += 
+        `<li>
+            <input type="checkbox" id="${index}" class="checkBtn">
+            ${item}
+            <button id="${index}" class="deleteButton"> Supprimer</button>
+        </li>`;            //*on associe l'index à l'id des boutons
+        index++ ;
+    };
+//fonction : supprimer les éléments:
+    const deleteButton = document.querySelectorAll(".deleteButton");
     for (const item of deleteButton){
         item.addEventListener("click", ()=> {
-            myList.pop(item.id)
-            loadList();
-        })
-    }
+            myList.splice(item.id,1)                                                                  //! je veux supprimer l'élément  à l'index "item.id" de mon tableau; méthode "array.splice(start,delete count)"; 
+            loadList();                                                                
+        });
+    };
+//fonction : checker les éléments :
+    const completedTaskList = document.querySelector("#completedTaskList")
+    const checkBtn = document.querySelectorAll(".checkBtn")
+    const completedTasks = document.querySelector("#completedTasks")
 
-    //Version alternative avec l'utilisation de la fonction deleteElement
-//     for (const item of deleteButton){
-//         item.addEventListener("click", deleteElement(item.id))
-//     }
-}
-function deleteElement(id) {
-    return function(id){
-        myList.pop(id)
+    let dones=[];
+
+    for (const item of checkBtn){
+        item.addEventListener("click", ()=>{
+            completedTasks.style.display = "block";
+            
+            completedTaskList.innerHTML='';
+
+            dones.push(myList[item.id]);
+            for (const done of dones) {
+                completedTaskList.innerHTML += `<li>${done}</li>`
+            };
+        });
+    };
+
+    todoTask.value = '';
+};
+
+addButton.addEventListener("click",() =>{
+    if (todoTask.value) {
+        myList.push(todoTask.value);
         loadList();
-    }
-}
+    };
+});
+
+
