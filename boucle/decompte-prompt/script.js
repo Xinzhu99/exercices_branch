@@ -8,7 +8,6 @@ Attention, si l'utilisateur rentre un chiffre erroné il faudra afficher message
 */
 
 const numbers = document.querySelector("#numbers");
-console.log(numbers)
 
 let getNumber = prompt("Entrez un nombre entre 0 et 10");
 
@@ -18,4 +17,4 @@ if (getNumber >= 0 && getNumber <=10){
     };
 }else{
     numbers.innerHTML="Erreur. Entrez un numbre valide."
-}
+};

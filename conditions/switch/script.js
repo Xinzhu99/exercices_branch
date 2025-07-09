@@ -48,7 +48,7 @@ switch (true) {                                           //**on ne peut pas uti
     case (tmp < 40):
         console.log("It's hot.")
         break;
-    case (tmp >= 40):
+    default:
         console.log("It's very hot.")
         break;
 };
