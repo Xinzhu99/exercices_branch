@@ -6,51 +6,53 @@ let myList = [];
 
 //fonction : afficher la list des tâches:
 function loadList() {
-    todoList.innerHTML='';                                                                           //*on vide d'abord la liste html avant chaque affichage */               
-    
-    let index = 0;                                                                                   //*on créer l'affichage dynamique en ajoutant un index à chaque bouton supprimer pour pouvoir identifier facilement l'élément à supprimer dans le tableau plus tard
+    todoList.innerHTML = '';                                                                           //*on vide d'abord la liste html avant chaque affichage */               
 
-    for (const item of myList){
-        todoList.innerHTML += 
-        `<li>
-            <input type="checkbox" id="${index}" class="checkBtn">
-            ${item}
-            <button id="${index}" class="deleteButton"> Supprimer</button>
-        </li>`;            //*on associe l'index à l'id des boutons
-        index++ ;
+    let index = 0;                                                                                     //*on créer l'affichage dynamique en ajoutant un index à chaque bouton supprimer pour pouvoir identifier facilement l'élément à supprimer dans le tableau plus tard
+
+    for (const item of myList) {
+        todoList.innerHTML +=
+            `<li>
+                <input type="checkbox" id="${index}" class="checkBtn">
+                ${item}
+                <button id="${index}" class="deleteButton"> Supprimer</button>
+            </li>`;                                                                                   //*on associe l'index à l'id des boutons
+        index++;
     };
-//fonction : supprimer les éléments:
+    //fonction : supprimer les éléments:
     const deleteButton = document.querySelectorAll(".deleteButton");
-    for (const item of deleteButton){
-        item.addEventListener("click", ()=> {
-            myList.splice(item.id,1)                                                                  //! je veux supprimer l'élément  à l'index "item.id" de mon tableau; méthode "array.splice(start,delete count)"; 
-            loadList();                                                                
+    for (const item of deleteButton) {
+        item.addEventListener("click", () => {
+            myList.splice(item.id, 1);                                                                 //! je veux supprimer l'élément  à l'index "item.id" de mon tableau; méthode "array.splice(start,delete count)"; 
+            item.parentElement.remove();                                                               //! cette ligne permet de updater la
         });
     };
-//fonction : checker les éléments :
+    //fonction : checker les éléments :
     const completedTaskList = document.querySelector("#completedTaskList")
     const checkBtn = document.querySelectorAll(".checkBtn")
     const completedTasks = document.querySelector("#completedTasks")
 
-    let dones=[];
-
-    for (const item of checkBtn){
-        item.addEventListener("click", ()=>{
+    let dones = [];
+    for (const item of checkBtn) {
+        item.addEventListener("click", () => {
             completedTasks.style.display = "block";
-            
-            completedTaskList.innerHTML='';
 
             dones.push(myList[item.id]);
-            for (const done of dones) {
-                completedTaskList.innerHTML += `<li>${done}</li>`
+            completedTaskList.innerHTML = '';
+            for (const item of dones) {
+                completedTaskList.innerHTML += `<li>${item}</li>`
             };
+                     
+            myList.splice(item.id, 1); 
+
+            
         });
     };
 
     todoTask.value = '';
 };
 
-addButton.addEventListener("click",() =>{
+addButton.addEventListener("click", () => {
     if (todoTask.value) {
         myList.push(todoTask.value);
         loadList();

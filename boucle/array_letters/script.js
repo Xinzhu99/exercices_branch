@@ -17,3 +17,6 @@ for (const item of letters){
     message += item;
 }
 console.log(message);
+
+let message2=letters.join('')
+console.log(message2)
