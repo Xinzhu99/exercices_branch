@@ -9,4 +9,6 @@ console.log(candidates[7])
 for (const candidate of candidates){
     list.innerHTML += `<li>${candidate}</li>`
 }
+//quand on a besoin d'éditer d'autres éléments du li, préférable d'utiliser la méthode createElement
+
 

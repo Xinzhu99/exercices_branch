@@ -30,3 +30,7 @@ const data = [
 for (const item of data){
     console.log(item.candidate)
 }
+//! pour récupérer toutes les clés d'un objet 
+for (const key in obj){
+	console.log(`${key} test`)
+} 
