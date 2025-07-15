@@ -1,5 +1,5 @@
 const fs = require('fs');
-const filepath = './data.json';
+const filepath = './data.json'; //lui donner le chemin vers un fichiers
 
 const content = fs.readFileSync(filepath, { encoding: 'utf8', flag: 'r' });
 const data = JSON.parse(content);
@@ -15,3 +15,9 @@ for (const item of data) {
 }
 let average = age / data.length;
 console.log(average);
+
+for (const item of data){
+    if (item.ranking === 4){
+        console.log(item);
+    };
+};
