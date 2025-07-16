@@ -1,8 +1,12 @@
+const pending = document.querySelector("#pendingText");
+
 async function fetchOffers(){
+ 
     const response = await fetch("https://api.allorigins.win/raw?url=https://codepassport.dev/api/offers");
     // j'ai collé https://api.allorigins.win/raw?url= avant mon url d'api car erreur corps
     const offers = await response.json();
-    console.log(offers)
+
+    pending.style.display = "none";
 
     const offerList = document.querySelector("#offerList");
 
