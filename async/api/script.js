@@ -12,38 +12,39 @@ async function showRecipes() {
 
     let recipes = await fetchData();                                 //! déclarer une variable pour stocker le return de fetchData et ajouter async devant ma fonction principale
 
-    //*méthode 1 :
+    //* méthode 1 :
     for (const item of recipes) {
         recipeList.innerHTML +=
             `<h2>${item.name}</h2>
             <img src =${item.image}>
-        <h3> Niveau de difficulté : ${item.servings}</h3>`
-
+        <h3> Niveau de difficulté : ${item.servings}</h3>
+        <ul>`
         for (etape of item.instructions) {
-            recipeList.innerHTML += `<ul><li>${etape}</li></ul>`     //! j"ajoute un rl qui englobe mes li pour afficher avec les bulletspoints
+            recipeList.innerHTML += `<li>${etape}</li>`             //! j"ajoute un rl qui englobe mes li pour afficher avec les bulletspoints
         };
+        recipeList.innerHTML += `</ul>`
 
-    //* ci dessous méthode 2
-    // for (const item of recipes) {
-    //     const title = document.createElement("h2");
-    //     const servingNb = document.createElement("p");
+        //* ci dessous méthode 2
+        // for (const item of recipes) {
+        //     const title = document.createElement("h2");
+        //     const servingNb = document.createElement("p");
 
-    //     title.innerHTML = item.name;
-    //     servingNb.innerHTML = item.servings;
+        //     title.innerHTML = item.name;
+        //     servingNb.innerHTML = item.servings;
 
-    //     recipeList.appendChild(title);
-    //     recipeList.appendChild(servingNb);
-    //     for (const step of item.instructions) {
-    //         const steps = document.createElement("li");
-    //         steps.innerHTML += step;
-    //         recipeList.appendChild(steps);
-    //     };
+        //     recipeList.appendChild(title);
+        //     recipeList.appendChild(servingNb);
+        //     for (const step of item.instructions) {
+        //         const steps = document.createElement("li");
+        //         steps.innerHTML += step;
+        //         recipeList.appendChild(steps);
+        //     };
 
-    //     recipeList.appendChild(title);
-    //     recipeList.appendChild(servingNb);
+        //     recipeList.appendChild(title);
+        //     recipeList.appendChild(servingNb);
 
-    //*méthode 3:
-    // recipeList.innerHTML += `<ul>${item.instructions.map((etape) => `<li>${etape}</li>`).join('')}</ul>`
-    }
+        //*méthode 3:
+        // recipeList.innerHTML += `<ul>${item.instructions.map((etape) => `<li>${etape}</li>`).join('')}</ul>`
+    };
 };
 showRecipes();

@@ -3,36 +3,40 @@ const addButton = document.querySelector("#todoAdd")
 const todoList = document.querySelector("#todoList")
 
 let myList = [];
-index = 0;
-function loadList() {
-
-}
-addButton.addEventListener("click", () => {
-    if (todoTask.value) {
-        myList.push(todoTask.value);
-        todoList.innerHTML = '';                                                                           //*on vide d'abord la liste html avant chaque affichage */               let index = 0;                                                                                     //*on créer l'affichage dynamique en ajoutant un index à chaque bouton supprimer pour pouvoir identifier facilement l'élément à supprimer dans le tableau plus tard
-
-        for (const item of myList) {
-            todoList.innerHTML +=
-                `<li>
+function loadTodo() {
+    index = 0;
+    todoList.innerHTML = ''
+    for (const item of myList) {
+        todoList.innerHTML +=
+            `<li>
                 <input type="checkbox" id="${index}" class="checkBtn">
                 ${item}
                 <button id="${index}" class="deleteButton"> Supprimer</button>
             </li>`;                                                                                   //*on associe l'index à l'id des boutons
-            index++;
-        };
+        index++;
     };
     todoTask.value = '';
 
-    //fonction : supprimer les éléments:
-    const deleteButton = document.querySelectorAll(".deleteButton");
-    for (const item of deleteButton) {
-        item.addEventListener("click", () => {
-            myList.splice(item.id, 1);                                                                 //! je veux supprimer l'élément  à l'index "item.id" de mon tableau; méthode "array.splice(start,delete count)"; 
-            item.parentElement.remove();                                                               //! cette ligne permet de updater la
+    const deleteButtons = document.querySelectorAll(".deleteButton");
+    console.log("deleteButtons", deleteButtons);
+
+    for (const button of deleteButtons) {
+        button.addEventListener("click", (event) => {
+            myList.splice(button.id, 1);
+            console.log("myList", myList)                                                                 //! je veux supprimer l'élément  à l'index "item.id" de mon tableau; méthode "array.splice(start,delete count)"; 
+            button.parentElement.remove();
         });
     };
-});
+}
+loadTodo();
+
+function addTask() {
+    if (todoTask.value) {
+        myList.push(todoTask.value);
+        loadTodo();     
+        console.log("myListapresAdd",myList)                                                                   //*on vide d'abord la liste html avant chaque affichage */               let index = 0;                                                                                     //*on créer l'affichage dynamique en ajoutant un index à chaque bouton supprimer pour pouvoir identifier facilement l'élément à supprimer dans le tableau plus tard
+    };
+};
 
 
 
