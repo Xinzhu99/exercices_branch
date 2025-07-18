@@ -22,7 +22,7 @@ async function showRecipes() {
         for (etape of item.instructions) {
             recipeList.innerHTML += `<li>${etape}</li>`             //! j"ajoute un rl qui englobe mes li pour afficher avec les bulletspoints
         };
-        recipeList.innerHTML += `</ul>`
+        recipeList.innerHTML += `</ul>`                             // ? comment englober tous les li dans un seul ul ?
 
         //* ci dessous méthode 2
         // for (const item of recipes) {

@@ -1,10 +1,7 @@
-async function fetchData(){
-    const res = await fetch("https://the-one-api.dev/v2/movie",{
-        method: "GET",
-        headers : {
-            "Authorization" : "Bearer GVeTGNvHZopfMwTwXkwl",
-            "Content-Type" : "application/json",
-        }
+async function fetchData() {
+    const res = await fetch("https://the-one-api.dev/v2/movie", {
+        // method: "GET",                                                                                   //! pas besoin de préciser la méthode GET car c'est par défaut
+        headers: { "Authorization": "Bearer GVeTGNvHZopfMwTwXkwl" }
     });
     const data = await res.json();
     const dataArr = data.docs;
@@ -12,12 +9,15 @@ async function fetchData(){
 };
 
 const myList = document.querySelector("#list");
-async function loadBuget(){
+async function loadBuget() {
     const docs = await fetchData();
-    console.log(docs);
-    for (const item of docs){
+    for (const item of docs) {
         myList.innerHTML += `<li>${item.name} a coûté ${item.budgetInMillions} millions de dollars </li>`
     };
 };
 loadBuget();
+
+// catch((error) => {
+//     document.get
+// })
 
