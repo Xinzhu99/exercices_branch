@@ -17,12 +17,14 @@ async function showRecipes() {
         recipeList.innerHTML +=
             `<h2>${item.name}</h2>
             <img src =${item.image}>
-        <h3> Niveau de difficulté : ${item.servings}</h3>
-        <ul>`
-        for (etape of item.instructions) {
-            recipeList.innerHTML += `<li>${etape}</li>`             //! j"ajoute un rl qui englobe mes li pour afficher avec les bulletspoints
-        };
-        recipeList.innerHTML += `</ul>`                             // ? comment englober tous les li dans un seul ul ?
+        <h3> Niveau de difficulté : ${item.servings}</h3>`
+        
+        const ul = document.createElement("ul");
+
+            for (etape of item.instructions) {
+                ul.innerHTML += `<li class="eachInstruction">${etape}</li>`             //! j"ajoute un rl qui englobe mes li pour afficher avec les bulletspoints
+            };
+        recipeList.appendChild(ul);
 
         //* ci dessous méthode 2
         // for (const item of recipes) {
@@ -48,3 +50,7 @@ async function showRecipes() {
     };
 };
 showRecipes();
+
+const testFunction = async (params) => {
+    
+}
