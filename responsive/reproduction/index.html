@@ -10,17 +10,6 @@
 
     <title>coming soon page</title>
 
-    <style>
-        .attribution {
-            font-size: 11px;
-            text-align: center;
-        }
-
-        .attribution a {
-            color: hsl(228, 45%, 44%);
-        }
-    </style>
-
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +23,7 @@
         <header>
             <img id="logo" src="images/logo.svg">
         </header>
-        <img src="images/hero-mobile.jpg" alt="base_apparel">
+        <img id="hero"src="images/hero-mobile.jpg" alt="base_apparel">
         <div id="textContainer">
             <h2 id="title1"> WE'RE</h2>
             <h2 id="title2">COMING SOON</h2>
@@ -44,7 +33,9 @@
 
         <div id="searchBar">
             <input id="userInput" placeholder="Email Address">
-            <button id="btn">Btn</button>
+            <button id="btn"><img src="images/icon-arrow.svg"></button>
+            <img id="errorImg" src="images/icon-error.svg" alt="error">
+            <p id="errorMsg">Please provide a valid email</p>
         </div>
     </div>
 

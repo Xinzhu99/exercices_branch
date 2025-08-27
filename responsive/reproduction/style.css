@@ -1,91 +1,152 @@
-.container{
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-body{
-    background-image: linear-gradient(hsl(0, 0%, 100%), hsl(0, 100%, 98%));
-    font-family: "Josefin Sans", sans-serif;
-    margin-bottom: 3rem;
+
+html {
+    width: 100vw;
+    height: 100vh;
 }
-header{
+
+body {
+    background-image: linear-gradient(to bottom, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+    font-family: "Josefin Sans", sans-serif;
+    margin: 0;
+}
+
+header {
     margin: 1.5rem;
     align-self: flex-start;
 }
-#logo{
+
+#logo {
     width: 100px;
     height: 20px;
 }
-#textContainer{
-    margin:2rem;
+
+#textContainer {
+    margin: 2rem;
     display: flex;
     flex-direction: column;
     text-align: center;
-    gap:0;
-    letter-spacing: 4px;
+    gap: 0;
+    letter-spacing: 6px;
+    max-width: 400px;
 }
-#title1{
-margin: 0;
-font-weight: 300;
-font-size: 40px;
-color: hsl(0, 36%, 70%);
-}
-#title2{
+
+#title1 {
     margin: 0;
-    font-weight: 400;
-font-size: 40px;
-color: hsl(0, 6%, 24%);
+    font-weight: 300;
+    font-size: 40px;
+    color: hsl(0, 36%, 70%);
 }
-p{
+
+#title2 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 40px;
+    color: hsl(0, 6%, 24%);
+}
+
+p {
     color: hsl(0, 36%, 70%);
     font-size: 16px;
     letter-spacing: normal;
 
 }
-#searchBar{
+
+#searchBar {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows:1fr;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: 2fr;
+    width: 90%;
+    max-width: 350px;
 }
-#userInput{
-    grid-column: 1 / 7;
+
+#userInput {
+    grid-column: 1 / 11;
     grid-row: 1 / 2;
 
-    outline:none;
+    outline: none;
     font-size: 12px;
+    font-family: "Josefin Sans", sans-serif;
+    ;
     color: hsl(0, 36%, 70%);
-    border-radius: 18px;
+    border-radius: 4rem;
     padding: 10px;
     border: 0.5px solid hsl(0, 36%, 70%);
+    background-color: transparent;
 }
 
-#btn{
-    grid-column: 6 / 7;
+#btn {
+    grid-column: 9 / 11;
     grid-row: 1 / 2;
 
     background-image: linear-gradient(to right, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
     border: none;
-    border-radius: 18px;
-    box-shadow: 0 0 12px #db1906, 0 0 24px #000000;;
-}
-
-/*#submitBtn,
-#submitAgeBtn {
-    color: #f7dbaf;
-    padding: 0.4em 0.4em;
-    font-size: 17px;
-    font-weight: 200;
-    border-radius: 0.5em;
-    background: linear-gradient(360deg, #87000d, #db1906);
+    border-radius: 4rem;
+    box-shadow: 0 0 12px hsl(0, 80%, 86%), 0 0 10px hsl(0, 74%, 74%);
+    padding: 8px;
     cursor: pointer;
-    border: none;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 0 12px #db1906, 0 0 24px #000000;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+#errorMsg{
+    display: none;
+    grid-column: 1 / 10;
+    grid-row: 2 / 3;
+    margin:0;
+    font-size: 12px;
+    color: red;
+    padding-left: 20px;
+
+}
+#errorImg{
+     display: none;
+    grid-column: 8 / 9;
+    grid-row: 1 / 2;
+    padding: 6px;
 }
 
-#submitBtn:hover,
-#submitAgeBtn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 16px #db1906, 0 0 32px #00ffff;
-}*/
+#btn:hover {
+    background-color: hsl(0, 80%, 86%);
+    background-image: none;
+}
+
+@media screen and (min-width: 1240px){
+  
+    .container {
+        display: grid;
+        grid-template-columns: 10% 1fr 1fr 1fr 1fr;
+        grid-template-rows: repeat(5,1fr);
+    }
+    #hero{
+        content: url("images/hero-desktop.jpg");
+        grid-column: 4 / 6;  
+        grid-row: 1 / 6;
+        width: 100%;
+        height: 100%;
+
+    }
+    header{
+        grid-column: 2 / 4;
+        grid-row: 1 / 2;
+        align-self: auto;
+    }
+    #textContainer{
+        grid-column: 2 / 4;
+        grid-row: 2 / 4;
+        text-align: left;
+
+    }
+    #title1, #title2{
+        font-size: 50px;
+    }
+    #searchBar{
+          grid-column: 2 / 4;
+        grid-row: 4 / 5;
+        margin-left: 32px
+    }
+
+
+
+}
