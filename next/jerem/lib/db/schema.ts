@@ -4,8 +4,9 @@ export const themesTable = pgTable("themes", {
     id: serial("id").primaryKey(),
     description: text("description").notNull()
 });
-
-export const skillsStatus = pgEnum("skill_status",["undetermined", "not-aquired","in_progress","aquired"])
+//déclarer un const enum en TS:
+export const SKILL_STATUS_VALUES = ["Undetermined", "Not aquired","In progress","Aquired"] as const
+export const skillsStatus = pgEnum("skill_status", SKILL_STATUS_VALUES)
 
 export const skillsTable = pgTable("skills", {
     id: serial("id").primaryKey(),
